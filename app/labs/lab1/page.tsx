@@ -2,6 +2,10 @@ import HeadingTags from "./HeadingTags";
 import ParagraphTag from "./ParagraphTag";
 import ListTags from "./ListTags";
 import Table from "./Table";
+import Image from "./Image";
+import Forms from "./Forms";
+import HighlightedParagraphLab from "./HighlightedParagraph";
+import HighlightedBoxLab from "./HighlightedBox";
 
 export default function Lab1() {
   return (
@@ -13,6 +17,10 @@ export default function Lab1() {
       <ParagraphTag />
       <ListTags />
       <Table />
+      <Image />
+      <Forms />
+      <HighlightedParagraphLab />
+      <HighlightedBoxLab />
     </div>
   );
 }
