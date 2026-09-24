@@ -3,7 +3,16 @@ import Link from "next/link";
 export default function TOC() {
   return (
     <ul>
-      <li>
+    <li>
+        <a
+            id="wd-toc-book-link"
+            href="https://webdev-client.vercel.app/book/ch1"
+        >
+            Chapter 1
+        </a>
+    </li>
+
+    <li>
         <Link href="/labs">Labs</Link>
       </li>
       <li>

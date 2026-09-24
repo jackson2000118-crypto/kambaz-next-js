@@ -19,6 +19,14 @@ export default function AnchorTag() {
       <a href="https://github.com/jackson2000118-crypto" id="wd-your-github">
         My GitHub
       </a>
+
+      <br />
+      <a
+        id="wd-ai-link"
+        href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table"
+      >
+        MDN: HTML table element
+      </a>
     </>
   );
 }

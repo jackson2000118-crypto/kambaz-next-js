@@ -17,6 +17,11 @@ export default function HeadingTags() {
         <span id="wd-your-span">Sekiro: Shadows Die Twice</span>
       </h2>
 
+      <div id="wd-ai-headings">
+        <h4>Lab notes</h4>
+        <h5>What I built</h5>
+        <h6>Next step</h6>
+      </div>
     </div>
   );
 }

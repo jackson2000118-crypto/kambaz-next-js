@@ -13,6 +13,12 @@ export default function ParagraphTag() {
 
       <p id="wd-p-your-1">I come from Taiwan</p>
       <p id="wd-p-your-2">Good to see you</p>
+
+      <p id="wd-ai-p">
+        Wrapping text in p tags creates separate paragraphs. Browsers apply
+        top and bottom margins to paragraphs by default, creating vertical
+        spacing between them.
+      </p>
     </div>
   );
 }

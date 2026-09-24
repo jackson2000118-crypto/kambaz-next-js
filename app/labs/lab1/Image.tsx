@@ -27,6 +27,16 @@ export default function Images() {
         width={300}
         alt="My cat Chef lying on a bed"
       />
+
+    {/* With AI：從公開網址載入範例圖片 */}
+    <h5>AI Sample Image</h5>
+    <img
+      id="wd-ai-image"
+      src="https://placehold.co/400x200/png"
+      width={400}
+      height={200}
+      alt="Sample placeholder image"
+    />
     </div>
   );
 }

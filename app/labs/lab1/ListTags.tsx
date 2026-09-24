@@ -41,6 +41,17 @@ export default function ListTags() {
         <li>Stellar Blade</li>
         <li>Pokemon Scarlet and Violet</li>
       </ul>
+
+      {/* With AI：本章學到的 HTML 標籤 */}
+      <h5>HTML Tags</h5>
+      <ul id="wd-ai-html-tags">
+        <li>{"<h1>"}: A main heading</li>
+        <li>{"<p>"}: A paragraph</li>
+        <li>{"<ul>"}: An unordered list</li>
+        <li>{"<table>"}: A table</li>
+        <li>{"<img>"}: An image</li>
+        <li>{"<a>"}: A hyperlink</li>
+      </ul>
     </div>
   );
 }
