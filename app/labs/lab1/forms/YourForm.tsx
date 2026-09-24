@@ -55,13 +55,14 @@ export default function YourForm(){
 
             <h5>Select your Major</h5>
             <input
-            id="student-major-Business"
+            id="student-major-business"
             type="radio"
             name="student-major"
             value="Business"
             />
             <label htmlFor="student-major-business">Business</label>
-
+            <br />
+            
             <input
             id="student-major-computer-science"
             type="radio"

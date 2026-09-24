@@ -1,5 +1,5 @@
 import TextFields from "./forms/TextFields"
-import MyTextFields from "./forms/MyTextFields"
+import YourForm from "./forms/YourForm"
 import Textarea from "./forms/Textarea";
 import Buttons from "./forms/Buttons";
 import FileUpload from "./forms/FileUpload";
@@ -20,7 +20,7 @@ export default function Forms() {
       <Checkboxes />
       <Dropdowns />
       <OtherFieldTypes />      
-      <MyTextFields />
+      <YourForm />
     </div>
   );
 }
