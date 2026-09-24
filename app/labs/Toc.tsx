@@ -39,6 +39,10 @@ export default function TOC() {
       </li>
 
         <li>
+        <Link href="/labs/lab5">Lab 5</Link>
+        </li>
+        
+        <li>
         <Link href="/" id="wd-kambaz-link">
             Kambaz
         </Link>
