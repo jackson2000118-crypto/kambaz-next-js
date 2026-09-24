@@ -24,17 +24,17 @@ export default function ListTags() {
         <li>The Forever War</li>
       </ul>
 
-      <h5>Favorite Sports Players</h5>
-      <ol id="wd-fav-sports-players">
-        <li>Harry Kane</li>
-        <li>Paul George</li>
-        <li>Lionel Messi</li>
-        <li>Michael Olise</li>
-        <li>Anthony Edwards</li>
+      <h5>My Favorite recipe</h5>
+      <ol id="wd-your-favorite-recipe">
+        <li>Boil water in a pot.</li>
+        <li>Add the noodles.</li>
+        <li>Cook according to the package instructions.</li>
+        <li>Add the seasoning and stir.</li>
+        <li>Pour into a bowl and enjoy.</li>
       </ol>
 
       <h5>Favorite Video Games</h5>
-      <ul id="wd-fav-video-games">
+      <ul id="wd-your-books">
         <li>Sekiro: Shadows Die Twice</li>
         <li>Elden Ring</li>
         <li>Monster Hunter: World</li>

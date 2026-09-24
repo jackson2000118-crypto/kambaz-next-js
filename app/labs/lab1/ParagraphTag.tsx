@@ -10,6 +10,9 @@ export default function ParagraphTag() {
       <p id="wd-p-2">This is the first sample paragraph.</p>
       <p id="wd-p-3">This is the second sample paragraph.</p>
       <p id="wd-p-4">This is the third sample paragraph.</p>
+
+      <p id="wd-p-your-1">I come from Taiwan</p>
+      <p id="wd-p-your-2">Good to see you</p>
     </div>
   );
 }

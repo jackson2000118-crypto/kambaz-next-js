@@ -12,11 +12,11 @@ export default function AnchorTag() {
         GitHub
       </a>
       <br />
-      <a href="https://www.northeastern.edu/" id="School-Web">
+      <a href="https://www.northeastern.edu/" id="wd-your-link">
         Northeastern Web
         </a>
         <br />
-      <a href="https://github.com/jackson2000118-crypto" id="My-github">
+      <a href="https://github.com/jackson2000118-crypto" id="wd-your-github">
         My GitHub
       </a>
     </>
