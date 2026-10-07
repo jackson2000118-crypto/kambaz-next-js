@@ -11,6 +11,17 @@ export default function BackgroundColors() {
           the background of this text is green and the foreground white
         </span>
       </p>
+
+      <p className="wd-bg-color-gray wd-fg-color-black">
+        This is my own example with a gray background and black text.
+      </p>
+
+      <p
+        id="wd-ai-bg"
+        className="wd-bg-color-yellow wd-fg-color-black"
+      >
+        This sample block has a yellow background and black text.
+      </p>
     </div>
   );
 }
