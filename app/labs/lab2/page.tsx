@@ -1,5 +1,4 @@
 import "./index.css";
-import "./index.css";
 import ForegroundColors from "./ForegroundColors";
 import BackgroundColors from "./BackgroundColors";
 
@@ -28,6 +27,14 @@ export default function Lab2() {
           Here&apos;s another paragraph using a different ID and a
           different look and feel
         </p>
+
+        <p id="wd-id-selector-3">
+          This is my own ID selector example.
+        </p>
+
+        <p id="wd-ai-id-selector">
+          This is an AI-generated ID selector example.
+        </p>
       </div>
 
       <div id="wd-css-class-selectors">
@@ -51,17 +58,17 @@ export default function Lab2() {
         </h4>
 
         <div>
-        <p className="wd-ai-class-selector">
-          This sample paragraph uses a shared class style.
-        </p>
+          <p className="wd-ai-class-selector">
+            This sample paragraph uses a shared class style.
+          </p>
 
-        <h4 className="wd-ai-class-selector">
-          This sample heading uses the same class style.
-        </h4>
-      </div>
+          <h4 className="wd-ai-class-selector">
+            This sample heading uses the same class style.
+          </h4>
+        </div>
       </div>
 
-            <div id="wd-css-document-structure">
+      <div id="wd-css-document-structure">
         <div className="wd-selector-1">
           <h3>Document structure selectors</h3>
 
@@ -85,23 +92,22 @@ export default function Lab2() {
               You can combine these relationships to create specific
               styles depending on the document structure
 
-            <br />
-            <span className="wd-your-selector-5">
-              This my own custom selector example.
+              <br />
+              <span className="wd-your-selector-5">
+                This is my own custom selector example.
               </span>
 
               <br />
-            <span className="wd-ai-selector-5">
-              This sample span demonstrates a descendant selector.
-            </span>
-
+              <span className="wd-ai-selector-5">
+                This sample span demonstrates a descendant selector.
+              </span>
             </p>
           </div>
         </div>
       </div>
 
-      <p style={{backgroundColor:"yellow", color:"black"}}>
-        This my own inline styled paragraph.
+      <p style={{ backgroundColor: "yellow", color: "black" }}>
+        This is my own inline styled paragraph.
       </p>
 
       <p

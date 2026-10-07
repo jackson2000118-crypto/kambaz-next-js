@@ -1,21 +1,5 @@
-/* p {
-  background-color: green;
-  color: white;
-} */
-
-
 p#wd-id-selector-1 {
   background-color: red;
-  color: white;
-}
-
-h3 {
-  background-color: lightblue;
-  color: rgb(128, 0, 9);
-}
-
-h2 {
-  background-color: navy;
   color: white;
 }
 
@@ -34,12 +18,22 @@ p#wd-id-selector-2 {
   color: black;
 }
 
+p#wd-id-selector-3 {
+  background-color: orange;
+  color: black;
+}
+
+p#wd-ai-id-selector {
+  background-color: purple;
+  color: white;
+}
+
 .wd-class-selector {
   background-color: yellow;
   color: blue;
 }
 
-.wd-your-class{
+.wd-your-class {
   background-color: rgb(226, 49, 141);
   color: black;
 }
@@ -59,7 +53,7 @@ p#wd-id-selector-2 {
   color: blue;
 }
 
-.wd-selector-3 > .wd-your-selector-5{
+.wd-selector-3 > .wd-your-selector-5 {
   background-color: black;
   color: aquamarine;
 }
@@ -78,24 +72,21 @@ p {
 }
 
 #wd-your-cascade {
-  background-color: purple;
-}
-
-#wd-your-cascade {
   background-color: orange;
 }
 
 /* #wd-ai-cascade wins: ID specificity is higher than class and tag. */
-p {
-  background-color: green;
-}
-
 .wd-ai-cascade {
   background-color: yellow;
 }
 
 #wd-ai-cascade {
   background-color: red;
+}
+
+/* Keep the global paragraph background from hiding green text here. */
+#wd-css-colors p {
+  background-color: white;
 }
 
 .wd-fg-color-black {
