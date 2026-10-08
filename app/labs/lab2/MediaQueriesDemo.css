@@ -107,6 +107,22 @@
   }
 }
 
-/* On your own */
-/* Add a personal breakpoint here,
-   or change a background in an existing rule above. */
+/* On your own: 1500px and above */
+@media (min-width: 1500px) {
+  .wd-media-queries-demo {
+    background-color: teal;
+    color: white;
+  }
+
+  .wd-media-queries-demo li[class] {
+    opacity: 0.55;
+    font-weight: normal;
+    text-decoration: none;
+  }
+
+  .wd-media-queries-demo li.wd-mq-rule-your {
+    opacity: 1;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}

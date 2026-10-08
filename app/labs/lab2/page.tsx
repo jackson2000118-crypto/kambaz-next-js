@@ -13,6 +13,8 @@ import Zindex from "./Zindex";
 import Float from "./Float";
 import GridLayout from "./GridLayout";
 import Flex from "./Flex";
+import MediaQueriesDemo from "./MediaQueriesDemo";
+import ReactIconsSampler from "./ReactIconsSampler";
 
 export default function Lab2() {
   return (
@@ -152,6 +154,8 @@ export default function Lab2() {
       <Float />
       <GridLayout />
       <Flex />
+      <MediaQueriesDemo />
+      <ReactIconsSampler />
     </div>
   );
 }

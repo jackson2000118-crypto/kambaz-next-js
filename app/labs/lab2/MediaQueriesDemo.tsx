@@ -26,8 +26,12 @@ export default function MediaQueriesDemo() {
           1250px and above: white text on red
         </li>
 
-        {/* On your own: update a description above,
-            or add a bullet for your new breakpoint here. */}
+        <li className="wd-mq-rule-your">
+        1500px and above: white text on teal
+        </li>
+        <li className="wd-mq-rule-1250">
+        1250px to below 1500px: white text on red
+        </li>
 
         <li className="wd-mq-rule-ai">
           749px and below: white text on purple
