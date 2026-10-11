@@ -5,7 +5,6 @@ export default function TailwindResponsiveDesign() {
         Responsive Design
       </h2>
 
-      {/* On your own: personalize this card and add a breakpoint utility. */}
       <div className="mx-auto w-full max-w-md overflow-hidden rounded-xl bg-white shadow-md md:max-w-2xl">
         <div className="md:flex">
           <div className="relative md:w-48 md:shrink-0">

@@ -154,7 +154,6 @@ export default function Lab2() {
       <Margins />
       <BoxModel />
       <Corners />
-      <Corners />
       <Dimensions />
       <Display />
       <Positions />

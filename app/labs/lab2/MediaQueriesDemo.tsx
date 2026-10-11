@@ -22,10 +22,6 @@ export default function MediaQueriesDemo() {
           1000px to below 1250px: white text on blue
         </li>
 
-        <li className="wd-mq-rule-1250">
-          1250px and above: white text on red
-        </li>
-
         <li className="wd-mq-rule-your">
         1500px and above: white text on teal
         </li>

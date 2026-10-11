@@ -1,29 +1,29 @@
-p#wd-id-selector-1 {
+:where(#wd-lab2) p#wd-id-selector-1 {
   background-color: red;
   color: white;
 }
 
-h3 {
+:where(#wd-lab2) h3 {
   background-color: rgb(42, 232, 8);
   color: rgb(239, 239, 239);
 }
 
-h2 {
+:where(#wd-lab2) h2 {
   background-color: navy;
   color: white;
 }
 
-p#wd-id-selector-2 {
+:where(#wd-lab2) p#wd-id-selector-2 {
   background-color: yellow;
   color: black;
 }
 
-p#wd-id-selector-3 {
+:where(#wd-lab2) p#wd-id-selector-3 {
   background-color: orange;
   color: black;
 }
 
-p#wd-ai-id-selector {
+:where(#wd-lab2) p#wd-ai-id-selector {
   background-color: purple;
   color: white;
 }
@@ -63,7 +63,7 @@ p#wd-ai-id-selector {
   color: white;
 }
 
-p {
+:where(#wd-lab2) p {
   background-color: green;
 }
 
@@ -401,7 +401,6 @@ p {
 
 /* ===== 2.1.15 Fixed Position ===== */
 
-/* Teacher example */
 .wd-pos-fixed {
   position: fixed;
   right: 0px;
@@ -426,6 +425,13 @@ p {
   z-index: 10;
 }
 
+.wd-your-zindex-top {
+  z-index: 20;
+  position: absolute;
+  top: 40px;
+  left: 30px;
+}
+
 /* AI example */
 .wd-ai-zindex-top {
   z-index: 20;
@@ -434,16 +440,7 @@ p {
   left: 80px;
 }
 
-.wd-ai-zindex-top {
-  z-index: 20;
-  position: absolute;
-  top: 40px;
-  left: 30px;
-}
-
 /* ===== 2.1.17 Float ===== */
-
-/* Teacher examples */
 .wd-float-left {
   float: left;
   height: 100px;
@@ -481,7 +478,6 @@ img.wd-float-right {
 }
 /* ===== 2.1.18 Grid Layout with Float ===== */
 
-/* Teacher examples */
 .wd-grid-row {
   clear: both;
 }
@@ -523,7 +519,6 @@ img.wd-float-right {
 
 /* ===== 2.1.19 Flex ===== */
 
-/* Teacher examples */
 .wd-flex-row-container {
   display: flex;
   flex-direction: row;
@@ -544,3 +539,14 @@ img.wd-float-right {
   flex-shrink: 0;
 }
 
+.wd-your-padding-left {
+  padding-left: 70px;
+}
+
+.wd-border-black {
+  border-color: black;
+}
+
+.wd-border-white {
+  border-color: white;
+}

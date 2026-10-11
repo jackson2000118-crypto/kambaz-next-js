@@ -3,7 +3,8 @@ import Lesson from "./Lesson";
 
 export default function Modules() {
   return (
-    <div className="mb-3 flex flex-wrap items-center gap-2">
+    <div>
+      <div className="mb-3 flex flex-wrap items-center gap-2">
         <button
           type="button"
           className="rounded border border-neutral-300 bg-white px-3 py-1.5 text-sm"
@@ -31,7 +32,7 @@ export default function Modules() {
         >
           + Module
         </button>
-
+      </div>
 
       <ul id="wd-modules" className="m-0 list-none p-0">
         <Module title="Week 1, Lecture 1 - Course Introduction, Syllabus, Agenda">
@@ -67,28 +68,38 @@ export default function Modules() {
         </Module>
 
         <Module title="Week 2">
+          <Lesson title="LEARNING OBJECTIVES">
+            <li className="wd-content-item">
+              Learn how to create user interfaces with HTML
+            </li>
+          </Lesson>
         </Module>
 
-        <Module title="Week 3" />
-      
+        <Module title="Week 3">
+          <Lesson title="LEARNING OBJECTIVES">
+            <li className="wd-content-item">
+              CSS Styling
+            </li>
+          </Lesson>
+        </Module>
 
-    <Module title="Week 4">
-      <Lesson title="Exam">
-        <li className="wd-content-item">
-          Is time to exam.
-        </li>
-      </Lesson>
-    </Module>
+        <Module title="Week 4">
+          <Lesson title="Exam">
+            <li className="wd-content-item">
+              Is time to exam.
+            </li>
+          </Lesson>
+        </Module>
 
-    {/* AI */}
-    <Module title="Sample module (AI)">
-      <Lesson title="Sample lesson (AI)">
-        <li className="wd-content-item">
-          Assistant-generated sample content.
-        </li>
-      </Lesson>
-    </Module>
-    </ul>
+        {/* AI */}
+        <Module title="Sample module (AI)">
+          <Lesson title="Sample lesson (AI)">
+            <li className="wd-content-item">
+              Assistant-generated sample content.
+            </li>
+          </Lesson>
+        </Module>
+      </ul>
     </div>
   );
 }

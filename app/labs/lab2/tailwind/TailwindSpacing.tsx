@@ -1,7 +1,6 @@
 export default function TailwindSpacing() {
   return (
     <div>
-      {/* Teacher: margin examples */}
       <h2 className="text-3xl">Margin</h2>
 
       <div className="bg-blue-200 mb-4 p-4">

@@ -42,10 +42,11 @@ export default function Display() {
         </span>
       </div>
 
-      <div>
-        <span id="wd-your-display" className="wd-display-inline wd-bg-color-yellow">
+      <div
+        id="wd-your-display"
+        className="wd-display-inline wd-bg-color-yellow"
+      >
         Own work
-        </span>
       </div>
 
       <div
