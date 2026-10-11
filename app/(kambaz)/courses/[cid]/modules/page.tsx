@@ -3,17 +3,37 @@ import Lesson from "./Lesson";
 
 export default function Modules() {
   return (
-    <div>
-      <button type="button">Collapse All</button>
-      <button type="button">View Progress</button>
+    <div className="mb-3 flex flex-wrap items-center gap-2">
+        <button
+          type="button"
+          className="rounded border border-neutral-300 bg-white px-3 py-1.5 text-sm"
+        >
+          Collapse All
+        </button>
 
-      <select defaultValue="publish-all">
-        <option value="publish-all">Publish All</option>
-      </select>
+        <button
+          type="button"
+          className="rounded border border-neutral-300 bg-white px-3 py-1.5 text-sm"
+        >
+          View Progress
+        </button>
 
-      <button type="button">+ Module</button>
+        <select
+          defaultValue="publish-all"
+          className="rounded border border-neutral-300 bg-white px-3 py-1.5 text-sm"
+        >
+          <option value="publish-all">Publish All</option>
+        </select>
 
-      <ul id="wd-modules">
+        <button
+          type="button"
+          className="rounded border border-red-600 bg-red-600 px-3 py-1.5 text-sm font-medium text-white"
+        >
+          + Module
+        </button>
+
+
+      <ul id="wd-modules" className="m-0 list-none p-0">
         <Module title="Week 1, Lecture 1 - Course Introduction, Syllabus, Agenda">
           <Lesson title="LEARNING OBJECTIVES">
             <li className="wd-content-item">
@@ -50,7 +70,25 @@ export default function Modules() {
         </Module>
 
         <Module title="Week 3" />
-      </ul>
+      
+
+    <Module title="Week 4">
+      <Lesson title="Exam">
+        <li className="wd-content-item">
+          Is time to exam.
+        </li>
+      </Lesson>
+    </Module>
+
+    {/* AI */}
+    <Module title="Sample module (AI)">
+      <Lesson title="Sample lesson (AI)">
+        <li className="wd-content-item">
+          Assistant-generated sample content.
+        </li>
+      </Lesson>
+    </Module>
+    </ul>
     </div>
   );
 }
