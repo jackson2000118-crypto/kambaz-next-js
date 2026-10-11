@@ -1,40 +1,55 @@
 import Link from "next/link";
+
 export default function Signin() {
   return (
-    <div id="wd-signin-screen">
-      <h3>Sign in</h3>
-      {/* Account：if no type, defult is text*/}
+    <div id="wd-signin-screen" className="mx-auto w-full max-w-sm">
+      <h1 className="mb-3 text-2xl font-semibold">
+        Sign in
+      </h1>
+
       <input
         placeholder="username"
-        className="wd-username"
-        defaultValue="ada"
-      />{" "}
-      <br />
+        defaultValue="MinHsun"
+        className="wd-username mb-2 w-full rounded border border-neutral-300 px-3 py-2"
+      />
 
-      {/* Password */}
       <input
         placeholder="password"
         type="password"
-        className="wd-password"
-        defaultValue="123"
-      />{" "}
-      <br />
-
-      <input
-        placeholder="verify password"
-        type="password"
-        className="wd-password-verify"
+        defaultValue="123abc"
+        className="wd-password mb-2 w-full rounded border border-neutral-300 px-3 py-2"
       />
-      <br />
-      
-      {/*  Sign in, and go to personal page */}
-      <Link href="/account/profile" id="wd-signin-btn">
-        Sign in
-      </Link>{" "}
-      <br />
 
-      {/*  Sign up, to the Sign up page */}
-      <Link href="/account/signup" id="wd-signup-link">
+      {/* AI */}
+      <div className="mb-2">
+        <label
+          htmlFor="wd-ai-signin-note"
+          className="mb-2 block font-medium"
+        >
+          Sample note
+        </label>
+
+        <input
+          id="wd-ai-signin-note"
+          type="text"
+          placeholder="sample note"
+          className="w-full rounded border border-neutral-300 px-3 py-2"
+        />
+      </div>
+
+      <Link
+        id="wd-signin-btn"
+        href="/dashboard"
+        className="mb-2 block w-full rounded bg-blue-600 px-3 py-2 text-center text-white no-underline"
+      >
+        Sign in
+      </Link>
+
+      <Link
+        id="wd-signup-link"
+        href="/account/signup"
+        className="text-blue-600 underline"
+      >
         Sign up
       </Link>
     </div>
