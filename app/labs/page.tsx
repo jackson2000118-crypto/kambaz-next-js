@@ -5,7 +5,7 @@ export default function Labs() {
       <div id="wd-labs">
       <h1>Labs</h1>
 
-      <p>Name: MinHsun Hsieh</p>
+      <p>Name: Min-Hsun Hsieh</p>
       <p>Section: CS5610-02</p>
       <ul>
         <li>
