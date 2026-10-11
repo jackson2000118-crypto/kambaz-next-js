@@ -1,4 +1,4 @@
-:where(#wd-lab2) p#wd-id-selector-1 {
+p#wd-id-selector-1 {
   background-color: red;
   color: white;
 }
@@ -13,17 +13,17 @@
   color: white;
 }
 
-:where(#wd-lab2) p#wd-id-selector-2 {
+p#wd-id-selector-2 {
   background-color: yellow;
   color: black;
 }
 
-:where(#wd-lab2) p#wd-id-selector-3 {
+p#wd-id-selector-3 {
   background-color: orange;
   color: black;
 }
 
-:where(#wd-lab2) p#wd-ai-id-selector {
+p#wd-ai-id-selector {
   background-color: purple;
   color: white;
 }
