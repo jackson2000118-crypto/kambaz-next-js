@@ -19,6 +19,7 @@ import FindFunction from "./FindFunction";
 import FindIndex from "./FindIndex";
 import FilterFunction from "./FilterFunction";
 import IncludesSomeEvery from "./IncludesSomeEvery";
+import ReduceFunction from "./ReduceFunction";
 import JsonStringify from "./JsonStringify";
 import House from "./House";
 import Spreader from "./Spreader";
@@ -26,13 +27,13 @@ import Destructing from "./Destructing";
 import FunctionDestructing from "./FunctionDestructing";
 import DestructingImports from "./DestructingImports";
 import OptionalChaining from "./OptionalChaining";
-
+import Classes from "./Classes";
+import ClientComponentDemo from "./ClientComponentDemo";
 export default function Lab3() {
   console.log("Hello World!");
   return (
     <div id="wd-lab3">
       <h2>Lab 3</h2>
-
       <VariablesAndConstants />
       <VariableTypes />
       <BooleanVariables />
@@ -54,6 +55,7 @@ export default function Lab3() {
       <FindIndex />
       <FilterFunction />
       <IncludesSomeEvery />
+      <ReduceFunction />
       <JsonStringify />
       <House />
       <Spreader />
@@ -61,6 +63,8 @@ export default function Lab3() {
       <FunctionDestructing />
       <DestructingImports />
       <OptionalChaining />
+      <Classes />
+      <ClientComponentDemo />
     </div>
   );
 }
