@@ -8,8 +8,7 @@ export default async function PeopleTable({
 }) {
   const { cid } = await params;
   const { users, enrollments } = db;
-
-  // 只留下有加入目前課程的人員
+  
   const enrolled = users.filter((user) =>
     enrollments.some(
       (enrollment) =>

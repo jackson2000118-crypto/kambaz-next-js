@@ -35,7 +35,7 @@ export default function CourseStatus() {
         Import Existing Content
       </button>
 
-      {/* On your own: finish the remaining status buttons here. */}
+      {/* On your own */}
 
       <button
         type="button"

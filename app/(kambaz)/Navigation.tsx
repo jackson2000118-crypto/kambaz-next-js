@@ -43,7 +43,6 @@ const LINKS = [
     icon: LiaCogSolid,
   },
 
-  // 保留原本的 Help
   {
     label: "Help",
     path: "/labs",

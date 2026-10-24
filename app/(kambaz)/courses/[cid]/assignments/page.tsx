@@ -9,7 +9,6 @@ export default async function Assignments({
 }) {
   const { cid } = await params;
 
-  // 只取得目前課程的作業
   const assignments = db.assignments.filter(
     (assignment) => assignment.course === cid,
   );

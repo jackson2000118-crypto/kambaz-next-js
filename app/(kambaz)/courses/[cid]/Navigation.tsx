@@ -42,13 +42,11 @@ export default function CourseNavigation({ cid }: { cid: string }) {
       {LINKS.map(({ segment, id, label }) => {
         const href = `/courses/${cid}/${segment}`;
 
-        // People 的其他子頁面也屬於 People
         const sectionPath =
           segment === "people/table"
             ? `/courses/${cid}/people`
             : href;
 
-        // Sample 保持原本不顯示 active 的行為
         const active =
           id !== "wd-course-ai-link" &&
           (pathname === sectionPath ||

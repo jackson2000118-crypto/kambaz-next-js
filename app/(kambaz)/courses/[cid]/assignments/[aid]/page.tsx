@@ -8,7 +8,6 @@ export default async function AssignmentEditor({
 }) {
   const { cid, aid } = await params;
 
-  // 找到目前課程中指定的作業
   const assignment = db.assignments.find(
     (a) => a._id === aid && a.course === cid,
   );
@@ -225,7 +224,6 @@ export default async function AssignmentEditor({
         />
       </div>
 
-      {/* 保留原本的 AI 欄位 */}
       <div className="mb-4">
         <label
           htmlFor="wd-ai-editor-notes"
