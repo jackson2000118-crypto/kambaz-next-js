@@ -28,7 +28,14 @@ import FunctionDestructing from "./FunctionDestructing";
 import DestructingImports from "./DestructingImports";
 import OptionalChaining from "./OptionalChaining";
 import Classes from "./Classes";
+import Styles from "./Styles";
 import ClientComponentDemo from "./ClientComponentDemo";
+import ServerComponentDemo from "./ServerComponentDemo"
+import Add from "./Add";
+import Square from "./Square";
+import Highlight from "./Highlight";
+import PathParameters from "./PathParameters";
+import TodoList from "./todos/TodoList";
 export default function Lab3() {
   console.log("Hello World!");
   return (
@@ -49,10 +56,19 @@ export default function Lab3() {
       <SimpleArrays />
       <ArrayIndexAndLength />
       <AddingAndRemovingToFromArrays />
+      <ServerComponentDemo />
+      <Add a={3} b={4} />
+
+      {/* On your own */}
+      <Add a={10} b={20} />
+
+      {/* With AI */}
+      <Add a={7} b={8} />
       <ForLoops />
       <MapFunction />
       <FindFunction />
       <FindIndex />
+      <Styles />
       <FilterFunction />
       <IncludesSomeEvery />
       <ReduceFunction />
@@ -65,6 +81,37 @@ export default function Lab3() {
       <OptionalChaining />
       <Classes />
       <ClientComponentDemo />
+      
+      <h4>Square of 4</h4>
+      <Square>4</Square>
+
+      {/* On your own */}
+      <h4>Square of 9</h4>
+      <Square>9</Square>
+
+      {/* With AI */}
+      <p>
+        Square of 5 = <Square>5</Square>
+      </p>
+
+      <hr />
+
+      <Highlight>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      </Highlight>
+      <br />
+
+      {/* On your own */}
+      <Highlight>
+        The Square component below takes a number in its body and returns the square of the number.
+      </Highlight>
+      <br />
+
+      {/* With AI */}
+      <Highlight>Children can be any JSX</Highlight>
+      <br />
+      <PathParameters />
+      <TodoList />
     </div>
   );
 }
