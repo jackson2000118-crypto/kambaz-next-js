@@ -1,6 +1,23 @@
 import { FaUserCircle } from "react-icons/fa";
+import * as db from "../../../../database";
 
-export default function PeopleTable() {
+export default async function PeopleTable({
+  params,
+}: {
+  params: Promise<{ cid: string }>;
+}) {
+  const { cid } = await params;
+  const { users, enrollments } = db;
+
+  // 只留下有加入目前課程的人員
+  const enrolled = users.filter((user) =>
+    enrollments.some(
+      (enrollment) =>
+        enrollment.user === user._id &&
+        enrollment.course === cid,
+    ),
+  );
+
   return (
     <div id="wd-people-table" className="overflow-x-auto">
       <table className="w-full border-collapse text-left text-sm">
@@ -16,125 +33,40 @@ export default function PeopleTable() {
         </thead>
 
         <tbody>
-          <tr className="odd:bg-neutral-50">
-            <td className="p-2 text-nowrap">
-              <FaUserCircle className="me-2 inline text-4xl text-neutral-500" />
-              Tony Stark
-            </td>
-            <td className="p-2">001234561S</td>
-            <td className="p-2">S101</td>
-            <td className="p-2">STUDENT</td>
-            <td className="p-2">2020-10-01</td>
-            <td className="p-2">10:21:32</td>
-          </tr>
+          {enrolled.map((user) => (
+            <tr key={user._id} className="odd:bg-neutral-50">
+              <td className="wd-full-name p-2 text-nowrap">
+                <FaUserCircle className="me-2 inline text-4xl text-neutral-500" />
 
-          <tr className="odd:bg-neutral-50">
-            <td className="p-2 text-nowrap">
-              <FaUserCircle className="me-2 inline text-4xl text-neutral-500" />
-              Bruce Wayne
-            </td>
-            <td className="p-2">001234562S</td>
-            <td className="p-2">S101</td>
-            <td className="p-2">STUDENT</td>
-            <td className="p-2">2020-11-02</td>
-            <td className="p-2">23:32:23</td>
-          </tr>
+                <span className="wd-first-name">
+                  {user.firstName}
+                </span>{" "}
+                <span className="wd-last-name">
+                  {user.lastName}
+                </span>
+              </td>
 
-          <tr className="odd:bg-neutral-50">
-            <td className="p-2 text-nowrap">
-              <FaUserCircle className="me-2 inline text-4xl text-neutral-500" />
-              Steve Rogers
-            </td>
-            <td className="p-2">001234563S</td>
-            <td className="p-2">S101</td>
-            <td className="p-2">STUDENT</td>
-            <td className="p-2">2020-10-02</td>
-            <td className="p-2">13:21:32</td>
-          </tr>
+              <td className="wd-login-id p-2">
+                {user.loginId}
+              </td>
 
-          <tr className="odd:bg-neutral-50">
-            <td className="p-2 text-nowrap">
-              <FaUserCircle className="me-2 inline text-4xl text-neutral-500" />
-              Natasha Romanoff
-            </td>
-            <td className="p-2">001234564S</td>
-            <td className="p-2">S101</td>
-            <td className="p-2">TA</td>
-            <td className="p-2">2020-11-05</td>
-            <td className="p-2">11:22:33</td>
-          </tr>
+              <td className="wd-section p-2">
+                {user.section}
+              </td>
 
-          <tr className="odd:bg-neutral-50">
-            <td className="p-2 text-nowrap">
-              <FaUserCircle className="me-2 inline text-4xl text-neutral-500" />
-              Michael Jackson  
-            </td>
-            <td className="p-2">OWN001</td>
-            <td className="p-2">S101</td>
-            <td className="p-2">STUDENT</td>
-            <td className="p-2">2026-10-06</td>
-            <td className="p-2">12:00:00</td>
-          </tr>
+              <td className="wd-role p-2">
+                {user.role}
+              </td>
 
-          <tr className="odd:bg-neutral-50">
-            <td className="p-2 text-nowrap">
-              <FaUserCircle className="me-2 inline text-4xl text-neutral-500" />
-              Michael Jordan
-            </td>
-            <td className="p-2">OWN002</td>
-            <td className="p-2">S101</td>
-            <td className="p-2">STUDENT</td>
-            <td className="p-2">2026-10-06</td>
-            <td className="p-2">12:00:00</td>
-          </tr>
-          
-          <tr className="odd:bg-neutral-50">
-            <td className="p-2 text-nowrap">
-              <FaUserCircle className="me-2 inline text-4xl text-neutral-500" />
-              Michael Angarano
-            </td>
-            <td className="p-2">OWN003</td>
-            <td className="p-2">S101</td>
-            <td className="p-2">STUDENT</td>
-            <td className="p-2">2026-10-06</td>
-            <td className="p-2">12:00:00</td>
-          </tr>
-          {/* AI */}
-          <tr className="odd:bg-neutral-50">
-            <td className="p-2 text-nowrap">
-              <FaUserCircle className="me-2 inline text-4xl text-neutral-500" />
-              Jane Sample
-            </td>
-            <td className="p-2">SAMPLE001</td>
-            <td className="p-2">S101</td>
-            <td className="p-2">STUDENT</td>
-            <td className="p-2">2026-10-01</td>
-            <td className="p-2">01:20:00</td>
-          </tr>
+              <td className="wd-last-activity p-2">
+                {user.lastActivity}
+              </td>
 
-          <tr className="odd:bg-neutral-50">
-            <td className="p-2 text-nowrap">
-              <FaUserCircle className="me-2 inline text-4xl text-neutral-500" />
-              Alex Sample
-            </td>
-            <td className="p-2">SAMPLE002</td>
-            <td className="p-2">S101</td>
-            <td className="p-2">TA</td>
-            <td className="p-2">2026-10-02</td>
-            <td className="p-2">02:30:00</td>
-          </tr>
-
-          <tr className="odd:bg-neutral-50">
-            <td className="p-2 text-nowrap">
-              <FaUserCircle className="me-2 inline text-4xl text-neutral-500" />
-              Sam Sample
-            </td>
-            <td className="p-2">SAMPLE003</td>
-            <td className="p-2">S101</td>
-            <td className="p-2">FACULTY</td>
-            <td className="p-2">2026-10-03</td>
-            <td className="p-2">03:40:00</td>
-          </tr>
+              <td className="wd-total-activity p-2">
+                {user.totalActivity}
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

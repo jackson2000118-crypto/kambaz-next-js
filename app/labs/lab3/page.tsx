@@ -30,17 +30,20 @@ import OptionalChaining from "./OptionalChaining";
 import Classes from "./Classes";
 import Styles from "./Styles";
 import ClientComponentDemo from "./ClientComponentDemo";
-import ServerComponentDemo from "./ServerComponentDemo"
+import ServerComponentDemo from "./ServerComponentDemo";
 import Add from "./Add";
 import Square from "./Square";
 import Highlight from "./Highlight";
 import PathParameters from "./PathParameters";
 import TodoList from "./todos/TodoList";
+
 export default function Lab3() {
   console.log("Hello World!");
+
   return (
     <div id="wd-lab3">
       <h2>Lab 3</h2>
+
       <VariablesAndConstants />
       <VariableTypes />
       <BooleanVariables />
@@ -49,26 +52,19 @@ export default function Lab3() {
       <ConditionalOutputIfElse />
       <ConditionalOutputInline />
       <NullUndefined />
+
       <LegacyFunctions />
       <ArrowFunctions />
       <ImpliedReturn />
       <TemplateLiterals />
+
       <SimpleArrays />
       <ArrayIndexAndLength />
       <AddingAndRemovingToFromArrays />
-      <ServerComponentDemo />
-      <Add a={3} b={4} />
-
-      {/* On your own */}
-      <Add a={10} b={20} />
-
-      {/* With AI */}
-      <Add a={7} b={8} />
       <ForLoops />
       <MapFunction />
       <FindFunction />
       <FindIndex />
-      <Styles />
       <FilterFunction />
       <IncludesSomeEvery />
       <ReduceFunction />
@@ -79,9 +75,21 @@ export default function Lab3() {
       <FunctionDestructing />
       <DestructingImports />
       <OptionalChaining />
+
       <Classes />
+      <Styles />
+
       <ClientComponentDemo />
-      
+      <ServerComponentDemo />
+
+      <Add a={3} b={4} />
+
+      {/* On your own */}
+      <Add a={10} b={20} />
+
+      {/* With AI */}
+      <Add a={7} b={8} />
+
       <h4>Square of 4</h4>
       <Square>4</Square>
 
@@ -103,13 +111,15 @@ export default function Lab3() {
 
       {/* On your own */}
       <Highlight>
-        The Square component below takes a number in its body and returns the square of the number.
+        The Square component below takes a number in its body and returns
+        the square of the number.
       </Highlight>
       <br />
 
       {/* With AI */}
       <Highlight>Children can be any JSX</Highlight>
       <br />
+
       <PathParameters />
       <TodoList />
     </div>

@@ -1,11 +1,17 @@
 import Link from "next/link";
+import * as db from "../../../../database";
 
 export default async function AssignmentEditor({
   params,
 }: {
   params: Promise<{ cid: string; aid: string }>;
 }) {
-  const { cid } = await params;
+  const { cid, aid } = await params;
+
+  // 找到目前課程中指定的作業
+  const assignment = db.assignments.find(
+    (a) => a._id === aid && a.course === cid,
+  );
 
   return (
     <div id="wd-assignments-editor" className="max-w-3xl">
@@ -20,9 +26,14 @@ export default async function AssignmentEditor({
         <input
           id="wd-name"
           type="text"
-          defaultValue="A4 — Chapter 4 (Zustand client state)"
+          defaultValue={assignment?.title ?? ""}
           className="w-full rounded border border-neutral-300 p-2"
         />
+
+        {/* With AI */}
+        <p className="mt-2 text-sm text-neutral-600">
+          Assignment id: {aid}
+        </p>
       </div>
 
       <div className="mb-4">
@@ -36,7 +47,7 @@ export default async function AssignmentEditor({
         <textarea
           id="wd-description"
           rows={5}
-          defaultValue="The assignment is available online. Submit a link to the landing page of your Web application."
+          defaultValue={assignment?.description ?? ""}
           className="w-full rounded border border-neutral-300 p-2"
         />
       </div>
@@ -52,7 +63,7 @@ export default async function AssignmentEditor({
         <input
           id="wd-points"
           type="number"
-          defaultValue={100}
+          defaultValue={assignment?.points ?? 100}
           className="w-full rounded border border-neutral-300 p-2"
         />
       </div>
@@ -177,7 +188,7 @@ export default async function AssignmentEditor({
         <input
           id="wd-due-date"
           type="date"
-          defaultValue="2026-09-27"
+          defaultValue={assignment?.due ?? ""}
           className="w-full rounded border border-neutral-300 p-2"
         />
       </div>
@@ -193,7 +204,7 @@ export default async function AssignmentEditor({
         <input
           id="wd-available-from"
           type="date"
-          defaultValue="2026-09-24"
+          defaultValue={assignment?.available ?? ""}
           className="w-full rounded border border-neutral-300 p-2"
         />
       </div>
@@ -214,7 +225,7 @@ export default async function AssignmentEditor({
         />
       </div>
 
-      {/* AI */}
+      {/* 保留原本的 AI 欄位 */}
       <div className="mb-4">
         <label
           htmlFor="wd-ai-editor-notes"

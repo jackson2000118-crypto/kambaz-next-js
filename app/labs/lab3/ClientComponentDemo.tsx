@@ -12,7 +12,7 @@ export default function ClientComponentDemo() {
       <p>Current pathname: {pathname}</p>
 
       {/* On your own */}
-      <p>pathname.length: {pathname.length}</p>
+      <p>Pathname length: {pathname.length}</p>
 
       {/* With AI */}
       <p>Last segment: {pathname.split("/").pop()}</p>
