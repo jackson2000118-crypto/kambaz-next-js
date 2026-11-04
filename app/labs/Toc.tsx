@@ -36,7 +36,7 @@ const LINKS = [
     match: () => false,
   },
 
-  // With AI：書本連結不參與反白
+  // With AI
   {
     href: "https://kambaz.dev/book/ch3",
     id: "wd-book-ch3-link",

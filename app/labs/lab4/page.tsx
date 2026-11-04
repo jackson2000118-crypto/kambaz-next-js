@@ -10,6 +10,12 @@ import StringStateVariables from "./StringStateVariables";
 import DateStateVariable from "./DateStateVariable";
 import ObjectStateVariable from "./ObjectStateVariable";
 import ArrayStateVariable from "./ArrayStateVariable";
+import ProfileForm from "./profile/ProfileForm";
+import ParentStateComponent from "./ParentStateComponent";
+import ContextExamples from "./context/ContextExamples";
+import ZustandExamples from "./zustand/ZustandExamples";
+import Link from "next/link";
+import ReduxExamples from "./redux/ReduxExamples";
 
 export default function Lab4() {
   const sayHello = (message: string) => {
@@ -42,6 +48,23 @@ export default function Lab4() {
       <DateStateVariable />
       <ObjectStateVariable />
       <ArrayStateVariable />
+      <ProfileForm />
+      <ParentStateComponent />
+      <ContextExamples />
+      <ZustandExamples />
+      <Link
+        href="/labs/lab4/profile-form"
+        className="text-blue-600 underline"
+      >
+        Compare Profile Forms
+      </Link>
+      <ReduxExamples />
+      <Link
+        href="/labs/lab4/hooks"
+        className="block text-blue-600 underline"
+      >
+        Custom Hooks
+      </Link>
     </div>
   );
 }
