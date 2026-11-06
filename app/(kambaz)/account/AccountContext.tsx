@@ -10,7 +10,6 @@ import usersJson from "../database/users.json";
 
 export type User = (typeof usersJson)[number];
 
-// On your own：共用的空白使用者，提供 People 表單使用。
 export const emptyUser: User = {
   _id: "",
   username: "",

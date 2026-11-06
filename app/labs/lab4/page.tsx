@@ -16,6 +16,7 @@ import ContextExamples from "./context/ContextExamples";
 import ZustandExamples from "./zustand/ZustandExamples";
 import Link from "next/link";
 import ReduxExamples from "./redux/ReduxExamples";
+import UrlEncoding from "./UrlEncoding";
 
 export default function Lab4() {
   const sayHello = (message: string) => {
@@ -65,6 +66,22 @@ export default function Lab4() {
       >
         Custom Hooks
       </Link>
+      <UrlEncoding />
+      <div className="my-3 flex flex-wrap gap-3">
+        <Link
+          href="/labs/lab4/url-encoding/query-params?a=5&b=10"
+          className="text-blue-600 underline"
+        >
+          Query Calculator: 5 + 10
+        </Link>
+
+        <Link
+          href="/labs/lab4/url-encoding/path-params/5/10"
+          className="text-blue-600 underline"
+        >
+          Path Calculator: 5 + 10
+        </Link>
+      </div>
     </div>
   );
 }

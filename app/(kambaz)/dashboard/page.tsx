@@ -21,18 +21,18 @@ export default function Dashboard() {
 
   const { currentUser } = useAccountContext();
   const [course, setCourse] = useState<Course>(emptyCourse);
-
   const [showAllCourses, setShowAllCourses] = useState(false);
 
-  const visibleCourses = showAllCourses
-    ? courses
-    : courses.filter((c) =>
-        enrollments.some(
-          (enrollment) =>
-            enrollment.user === currentUser?._id &&
-            enrollment.course === c._id
-        )
-      );
+  const visibleCourses =
+    !currentUser || showAllCourses
+      ? courses
+      : courses.filter((c) =>
+          enrollments.some(
+            (enrollment) =>
+              enrollment.user === currentUser._id &&
+              enrollment.course === c._id
+          )
+        );
 
   return (
     <div id="wd-dashboard">
@@ -74,6 +74,7 @@ export default function Dashboard() {
       </h5>
 
       <input
+        type="text"
         id="wd-course-name"
         className="mb-2 mt-2 block w-full max-w-xl rounded border border-neutral-300 px-3 py-1.5"
         value={course.name}
@@ -91,7 +92,6 @@ export default function Dashboard() {
           setCourse({ ...course, description: e.target.value })
         }
       />
-
       <input
         type="text"
         id="wd-course-number"
