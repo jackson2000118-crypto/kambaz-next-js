@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAccountContext } from "../AccountContext";
+import * as client from "../client";
 
 export default function Signin() {
   const [credentials, setCredentials] = useState({
@@ -12,24 +13,25 @@ export default function Signin() {
   });
   const [error, setError] = useState("");
 
-  const { users, setCurrentUser } = useAccountContext();
+  const { setCurrentUser } = useAccountContext();
   const router = useRouter();
 
-  const signin = () => {
-    const user = users.find(
-      (u) =>
-        u.username === credentials.username &&
-        u.password === credentials.password
-    );
-
-    if (!user) {
-      setError("Invalid username or password.");
-      return;
-    }
-
+  const signin = async () => {
     setError("");
-    setCurrentUser(user);
-    router.push("/dashboard");
+
+    try {
+      const user = await client.signin(credentials);
+
+      if (!user) {
+        setError("Invalid username or password.");
+        return;
+      }
+
+      setCurrentUser(user);
+      router.push("/dashboard");
+    } catch {
+      setError("Unable to sign in. Please try again.");
+    }
   };
 
   return (

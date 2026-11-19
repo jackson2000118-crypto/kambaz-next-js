@@ -2,61 +2,38 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useAccountContext } from "../account/AccountContext";
-import {
-  useCoursesStore,
-  type Course,
-} from "../store/coursesStore";
-import { useEnrollmentsStore } from "../store/enrollmentsStore";
+import type { Course } from "../store/coursesStore";
+
+type CourseCardProps = {
+  course: Course;
+  isEnrolled: boolean;
+  disabled: boolean;
+  onEdit: () => void;
+  onDelete: () => Promise<void>;
+  onToggleEnrollment: () => Promise<void>;
+};
 
 export default function CourseCard({
   course,
+  isEnrolled,
+  disabled,
   onEdit,
-}: {
-  course: Course;
-  onEdit: () => void;
-}) {
-  const { currentUser } = useAccountContext();
-
-  const deleteCourse = useCoursesStore(
-    (state) => state.deleteCourse
-  );
-
-  const enrollments = useEnrollmentsStore(
-    (state) => state.enrollments
-  );
-  const enroll = useEnrollmentsStore((state) => state.enroll);
-  const unenroll = useEnrollmentsStore((state) => state.unenroll);
-
-  const isEnrolled = enrollments.some(
-    (e) =>
-      e.user === currentUser?._id &&
-      e.course === course._id
-  );
-
-  const toggleEnrollment = () => {
-    if (!currentUser) return;
-
-    if (isEnrolled) {
-      unenroll(currentUser._id, course._id);
-    } else {
-      enroll(currentUser._id, course._id);
-    }
-  };
-
+  onDelete,
+  onToggleEnrollment,
+}: CourseCardProps) {
   return (
     <div className="wd-dashboard-course w-[300px] max-w-full overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm">
       <Link
         href={`/courses/${course._id}/home`}
         className="wd-dashboard-course-link block text-neutral-900 no-underline"
         onClick={(event) => {
-          if (currentUser && !isEnrolled) {
+          if (!isEnrolled) {
             event.preventDefault();
           }
         }}
       >
         <Image
-          src={course.image}
+          src={course.image || "/images/reactjs.jpg"}
           width={300}
           height={160}
           alt={course.name}
@@ -64,7 +41,7 @@ export default function CourseCard({
         />
 
         <div className="p-4">
-          <h5 className="wd-dashboard-course-title m-0 mb-2 truncate text-lg font-semibold whitespace-nowrap">
+          <h5 className="wd-dashboard-course-title m-0 mb-2 truncate text-lg font-semibold">
             {course.name}
           </h5>
 
@@ -72,17 +49,28 @@ export default function CourseCard({
             {course.description}
           </p>
 
-          <span className="inline-flex items-center justify-center rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white">
-            Go
+          <span
+            className="inline-flex rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white"
+            style={{ opacity: isEnrolled ? 1 : 0.5 }}
+          >
+            {isEnrolled ? "Go" : "Enroll to enter"}
           </span>
         </div>
       </Link>
 
-      <div className="flex flex-wrap gap-2 px-4 pb-4">
+      <div
+        className="px-4 pb-4"
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "12px",
+        }}
+      >
         <button
           type="button"
           id="wd-edit-course-click"
           onClick={onEdit}
+          disabled={disabled}
           className="rounded bg-yellow-400 px-3 py-1.5 text-sm font-medium"
         >
           Edit
@@ -91,7 +79,8 @@ export default function CourseCard({
         <button
           type="button"
           id="wd-delete-course-click"
-          onClick={() => deleteCourse(course._id)}
+          onClick={onDelete}
+          disabled={disabled}
           className="rounded bg-red-600 px-3 py-1.5 text-sm font-medium text-white"
         >
           Delete
@@ -100,9 +89,9 @@ export default function CourseCard({
         <button
           type="button"
           id={`wd-enrollment-${course._id}`}
-          onClick={toggleEnrollment}
-          disabled={!currentUser}
-          className={`rounded px-3 py-1.5 text-sm font-medium text-white disabled:opacity-50 ${
+          onClick={onToggleEnrollment}
+          disabled={disabled}
+          className={`rounded px-3 py-1.5 text-sm font-medium text-white ${
             isEnrolled ? "bg-red-600" : "bg-green-600"
           }`}
         >

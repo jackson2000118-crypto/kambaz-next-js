@@ -31,10 +31,7 @@ export default function CoursesLayout({
       e.course === courseId
   );
 
-  // 未登入可存取；登入後必須已選課。
-  const canAccess = Boolean(
-    course && (!currentUser || isEnrolled)
-  );
+  const canAccess = Boolean(course && (!currentUser || isEnrolled));
 
   useEffect(() => {
     if (!canAccess) {
