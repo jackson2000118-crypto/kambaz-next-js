@@ -1,37 +1,52 @@
 "use client";
 
 import { useState } from "react";
-import { useParams } from "next/navigation";
-import { useModulesStore } from "../../../store/modulesStore";
 
-export default function ModuleEditor() {
-  const { cid } = useParams();
-  const courseId = typeof cid === "string" ? cid : "";
-
+export default function ModuleEditor({
+  disabled,
+  onAddModule,
+}: {
+  disabled: boolean;
+  onAddModule: (name: string) => Promise<boolean>;
+}) {
   const [show, setShow] = useState(false);
   const [moduleName, setModuleName] = useState("");
 
-  const addModule = useModulesStore((state) => state.addModule);
+  const [error, setError] = useState("");
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    if (!disabled) {
+      setShow(false);
+      setError("");
+    }
+  };
 
-  const handleAdd = () => {
-    // With AI：空白或只有空格時，不新增，也不關閉對話框。
-    if (moduleName.trim() === "") return;
+  const handleAdd = async () => {
+    if (disabled) {
+      return;
+    }
 
-    addModule({
-      name: moduleName,
-      course: courseId,
-    });
+    if (moduleName.trim() === "") {
+      setError("Module name is required.");
+      return;
+    }
 
-    setModuleName("");
-    handleClose();
+    setError("");
+    const created = await onAddModule(moduleName.trim());
+
+    if (created) {
+      setModuleName("");
+      setShow(false);
+    } else {
+      setError("Unable to create module. Please try again.");
+    }
   };
 
   return (
     <>
       <button
         type="button"
+        disabled={disabled}
         id="wd-add-module-btn"
         onClick={() => setShow(true)}
         className="rounded border border-red-600 bg-red-600 px-3 py-1.5 text-sm font-medium text-white"
@@ -42,6 +57,9 @@ export default function ModuleEditor() {
       {show && (
         <div
           id="wd-add-module-dialog"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Add Module"
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
         >
           <div className="w-full max-w-md rounded-lg bg-white shadow-lg">
@@ -52,6 +70,7 @@ export default function ModuleEditor() {
 
               <button
                 type="button"
+                disabled={disabled}
                 onClick={handleClose}
                 className="text-2xl leading-none text-neutral-500"
                 aria-label="Close"
@@ -63,6 +82,8 @@ export default function ModuleEditor() {
             <div className="px-4 py-3">
               <input
                 id="wd-add-module-name"
+                disabled={disabled}
+                aria-label="Module name"
                 className="w-full rounded border border-neutral-300 px-3 py-1.5"
                 value={moduleName}
                 onChange={(e) => setModuleName(e.target.value)}
@@ -70,9 +91,16 @@ export default function ModuleEditor() {
               />
             </div>
 
+            {error && (
+              <p role="alert" className="px-4 text-sm text-red-600">
+                {error}
+              </p>
+            )}
+
             <div className="flex justify-end gap-2 border-t border-neutral-200 px-4 py-3">
               <button
                 type="button"
+                disabled={disabled}
                 id="wd-add-module-cancel"
                 onClick={handleClose}
                 className="rounded border border-neutral-300 bg-white px-3 py-1.5 text-sm"
@@ -82,6 +110,7 @@ export default function ModuleEditor() {
 
               <button
                 type="button"
+                disabled={disabled}
                 id="wd-add-module-submit"
                 onClick={handleAdd}
                 className="rounded bg-red-600 px-3 py-1.5 text-sm font-medium text-white"

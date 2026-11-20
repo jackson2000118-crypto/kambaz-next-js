@@ -1,10 +1,17 @@
 import ModuleEditor from "./ModuleEditor";
 
-export default function ModulesControls() {
+export default function ModulesControls({
+  disabled,
+  onAddModule,
+}: {
+  disabled: boolean;
+  onAddModule: (name: string) => Promise<boolean>;
+}) {
   return (
     <div
       id="wd-modules-controls"
       className="mb-3 flex flex-wrap items-center gap-2"
+      style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}
     >
       <button
         type="button"
@@ -28,7 +35,10 @@ export default function ModulesControls() {
         <option value="unpublish-all">Unpublish All</option>
       </select>
 
-      <ModuleEditor />
+      <ModuleEditor
+        disabled={disabled}
+        onAddModule={onAddModule}
+      />
     </div>
   );
 }

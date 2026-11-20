@@ -4,33 +4,42 @@ import { FaPencilAlt, FaTrash } from "react-icons/fa";
 import { BsPlus } from "react-icons/bs";
 import { IoEllipsisVertical } from "react-icons/io5";
 import GreenCheckmark from "./GreenCheckmark";
-import { useModulesStore } from "../../../store/modulesStore";
 
 export default function ModuleControlButtons({
-  moduleId,
+  disabled,
+  onEdit,
+  onDelete,
 }: {
-  moduleId: string;
+  disabled: boolean;
+  onEdit: () => void;
+  onDelete: () => Promise<void>;
 }) {
-  const deleteModule = useModulesStore(
-    (state) => state.deleteModule
-  );
-  const editModule = useModulesStore(
-    (state) => state.editModule
-  );
-
   return (
-    <div className="flex items-center gap-2">
-      <FaPencilAlt
-        className="cursor-pointer text-blue-600"
-        onClick={() => editModule(moduleId)}
+    <div
+      className="flex items-center gap-2"
+      style={{ display: "flex", alignItems: "center", gap: "12px" }}
+    >
+      <button
+        type="button"
+        disabled={disabled}
+        onClick={onEdit}
         title="Edit module"
-      />
+        aria-label="Edit module"
+        className="text-blue-600 disabled:opacity-50"
+      >
+        <FaPencilAlt />
+      </button>
 
-      <FaTrash
-        className="cursor-pointer text-red-600"
-        onClick={() => deleteModule(moduleId)}
+      <button
+        type="button"
+        disabled={disabled}
+        onClick={onDelete}
         title="Delete module"
-      />
+        aria-label="Delete module"
+        className="text-red-600 disabled:opacity-50"
+      >
+        <FaTrash />
+      </button>
 
       <GreenCheckmark />
       <BsPlus className="text-3xl" />

@@ -23,7 +23,6 @@
         "description": "Overview of different types of rocket engines.",
         "module": "M101"
       },
-
       {
         "_id": "L104",
         "name": "Newton's Laws and Rocket Motion",
@@ -55,14 +54,14 @@
         "name": "Combustion Instability",
         "description": "Understanding combustion instability and mitigation.",
         "module": "M102"
+      },
+      {
+        "_id": "L204",
+        "name": "Nozzle Design",
+        "description": "How nozzle shape affects thrust.",
+        "module": "M102"
       }
     ]
-  },
-  {
-  "_id": "L204",
-  "name": "Nozzle Design",
-  "description": "How nozzle shape affects thrust.",
-  "module": "M102"
   },
   {
     "_id": "M103",
