@@ -4,7 +4,9 @@ const axiosWithCredentials = axios.create({
   withCredentials: true,
 });
 
-const HTTP_SERVER = process.env.NEXT_PUBLIC_HTTP_SERVER;
+const HTTP_SERVER =
+  process.env.NEXT_PUBLIC_KAMBAZ_SERVER ||
+  process.env.NEXT_PUBLIC_HTTP_SERVER;
 const USERS_API = `${HTTP_SERVER}/api/users`;
 
 export const enrollIntoCourse = async (courseId: string) => {
