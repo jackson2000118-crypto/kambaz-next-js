@@ -5,9 +5,12 @@ import { useParams, useRouter } from "next/navigation";
 import { FaAlignJustify } from "react-icons/fa6";
 import CourseNavigation from "./Navigation";
 import Breadcrumb from "./Breadcrumb";
-import { useCoursesStore } from "../../store/coursesStore";
-import { useEnrollmentsStore } from "../../store/enrollmentsStore";
+import {
+  useCoursesStore,
+  type Course,
+} from "../../store/coursesStore";
 import { useAccountContext } from "../../account/AccountContext";
+import * as client from "../client";
 
 export default function CoursesLayout({
   children,
@@ -17,29 +20,82 @@ export default function CoursesLayout({
   const router = useRouter();
 
   const { currentUser } = useAccountContext();
-  const courses = useCoursesStore((state) => state.courses);
-  const enrollments = useEnrollmentsStore(
-    (state) => state.enrollments
-  );
+  const userId = currentUser?._id;
+  const setCourses = useCoursesStore((state) => state.setCourses);
 
-  const course = courses.find((c) => c._id === courseId);
+  const [course, setCourse] = useState<Course | null>(null);
+  const [checkedUserId, setCheckedUserId] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
   const [showCourseNav, setShowCourseNav] = useState(true);
 
-  const isEnrolled = enrollments.some(
-    (e) =>
-      e.user === currentUser?._id &&
-      e.course === courseId
-  );
-
-  const canAccess = Boolean(course && (!currentUser || isEnrolled));
-
   useEffect(() => {
-    if (!canAccess) {
-      router.replace("/dashboard");
-    }
-  }, [canAccess, router]);
+    let cancelled = false;
 
-  if (!canAccess) return null;
+    const checkEnrollment = async () => {
+      setLoading(true);
+      setError("");
+      setCourse(null);
+      setCheckedUserId("");
+
+      if (!userId) {
+        router.replace("/account/signin");
+        return;
+      }
+
+      try {
+        const myCourses = await client.findMyCourses();
+
+        if (cancelled) {
+          return;
+        }
+
+        const enrolledCourse = myCourses.find(
+          (item) => item._id === courseId
+        );
+
+        if (!enrolledCourse) {
+          router.replace("/dashboard");
+          return;
+        }
+
+        setCourses(myCourses);
+        setCourse(enrolledCourse);
+        setCheckedUserId(userId);
+      } catch {
+        if (!cancelled) {
+          setError("Unable to load course. Please refresh and try again.");
+        }
+      } finally {
+        if (!cancelled) {
+          setLoading(false);
+        }
+      }
+    };
+
+    checkEnrollment();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [courseId, userId, router, setCourses]);
+
+  if (error) {
+    return (
+      <p role="alert" className="text-red-600">
+        {error}
+      </p>
+    );
+  }
+
+  if (
+    loading ||
+    !course ||
+    course._id !== courseId ||
+    checkedUserId !== userId
+  ) {
+    return <p>Loading course...</p>;
+  }
 
   return (
     <div id="wd-courses">
@@ -56,7 +112,9 @@ export default function CoursesLayout({
 
         <Breadcrumb course={course} />
 
-        <span className="ms-2 text-sm">({course?._id})</span>
+        <span className="ms-2 text-sm">
+          ({course._id})
+        </span>
       </h2>
 
       <hr className="my-3" />
@@ -68,7 +126,9 @@ export default function CoursesLayout({
           </div>
         )}
 
-        <div className="min-w-0 flex-1">{children}</div>
+        <div className="min-w-0 flex-1">
+          {children}
+        </div>
       </div>
     </div>
   );
