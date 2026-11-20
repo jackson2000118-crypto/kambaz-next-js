@@ -96,7 +96,8 @@ export default function WorkingWithRemoteArrays() {
       </div>
       <ul className="space-y-2">
         {links.map(([id, href, label]) => (
-          <li key={id}>
+          <li key={id} style={{ marginBottom: "20px" }}>
+            <h4 className="mb-2 font-semibold">{label}</h4>
             <a
               id={id}
               className="text-blue-700 underline"
@@ -112,3 +113,4 @@ export default function WorkingWithRemoteArrays() {
     </section>
   );
 }
+

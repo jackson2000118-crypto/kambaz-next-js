@@ -39,6 +39,24 @@ export default function Labs() {
           GitHub Repository
         </a>
       </li>
+        <li>
+          <a
+            id="wd-server-github"
+            href="https://github.com/jackson2000118-crypto/webdev-server/tree/a5"
+            className="text-blue-600 underline"
+          >
+            Node Server GitHub Repository
+          </a>
+        </li>
+        <li>
+          <a
+            id="wd-server-url"
+            href={process.env.NEXT_PUBLIC_HTTP_SERVER}
+            className="text-blue-600 underline"
+          >
+            Deployed Node Server (Render)
+          </a>
+        </li>
       </ul>
     </div>
   );
